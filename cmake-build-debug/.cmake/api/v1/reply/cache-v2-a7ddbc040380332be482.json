@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/Luz Bonilla/CLionProjects/NumerosRomanos/cmake-build-debug"
+			"value" : "c:/Users/Camilo/Downloads/Algoritmos/AlgoritmosC/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -431,7 +431,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Luz Bonilla/CLionProjects/NumerosRomanos/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/Camilo/Downloads/Algoritmos/AlgoritmosC/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -503,7 +503,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/Luz Bonilla/CLionProjects/NumerosRomanos"
+			"value" : "C:/Users/Camilo/Downloads/Algoritmos/AlgoritmosC"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1119,7 +1119,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Luz Bonilla/CLionProjects/NumerosRomanos/cmake-build-debug"
+			"value" : "C:/Users/Camilo/Downloads/Algoritmos/AlgoritmosC/cmake-build-debug"
 		},
 		{
 			"name" : "NumerosRomanos_IS_TOP_LEVEL",
@@ -1143,7 +1143,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Luz Bonilla/CLionProjects/NumerosRomanos"
+			"value" : "C:/Users/Camilo/Downloads/Algoritmos/AlgoritmosC"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

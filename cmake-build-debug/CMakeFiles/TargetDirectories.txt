@@ -1,3 +1,3 @@
-C:/Users/Luz Bonilla/CLionProjects/NumerosRomanos/cmake-build-debug/CMakeFiles/NumerosRomanos.dir
-C:/Users/Luz Bonilla/CLionProjects/NumerosRomanos/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Luz Bonilla/CLionProjects/NumerosRomanos/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Camilo/Downloads/Algoritmos/AlgoritmosC/cmake-build-debug/CMakeFiles/NumerosRomanos.dir
+C:/Users/Camilo/Downloads/Algoritmos/AlgoritmosC/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Camilo/Downloads/Algoritmos/AlgoritmosC/cmake-build-debug/CMakeFiles/rebuild_cache.dir
