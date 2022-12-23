@@ -3,12 +3,14 @@
 #include <string.h>
 #include <stdlib.h>
 
+//Parte Kevin
 int numeroRomano();
 
 void numeroMagico();
 
 int multiplicacionMatrices();
 
+//Parte Camilo
 void borrarEspacios();
 
 void fecha();
@@ -358,6 +360,7 @@ void fecha() {
 
 #define nums 100
 
+//Matriz Magica
 void matrizMagica(int n) {
     int a[nums][nums];
     int i,j;
@@ -409,6 +412,7 @@ void matrizMagica(int n) {
 
 }
 
+//Muestra la matriz magica
 void mostrarMatrizMagica() {
     printf("Ingrese la dimension de la matriz magica impar: \n");
     int a[nums][nums];
