@@ -408,7 +408,7 @@ void matrizMagica(int n) {
 
         printf("\n");
     }
-    printf("la suma de cada una de sus filas y columnas es de %d", sumarFilas);
+    printf("la suma de cada una de sus filas, columnas y diagonales es de %d", sumarFilas);
 
 }
 
