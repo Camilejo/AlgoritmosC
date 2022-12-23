@@ -11,14 +11,16 @@ int multiplicacionMatrices();
 
 void borrarEspacios();
 
+void fecha();
+
+void mostrarMatrizMagica();
+
 int main() {
 
-
-    /**
     int option = 0;
 
     do {
-        printf("---MENU DE FUNCIONES--- \n"
+        printf("\n---MENU DE FUNCIONES--- \n"
                "1. Numeros Romanos \n"
                "2. Factores primos \n"
                "3. Borrar espacios \n"
@@ -48,6 +50,7 @@ int main() {
                 numeroMagico();
                 break;
             case 6:
+                fecha();
                 break;
             case 7:
                 break;
@@ -55,10 +58,11 @@ int main() {
                 multiplicacionMatrices();
                 break;
             case 9:
+                mostrarMatrizMagica();
                 break;
         }
     } while (option != 10);
-     **/
+
 }
 
 //Numeros Romanos
@@ -68,6 +72,7 @@ int numeroRomano() {
 
     printf("Ingrese un numero romano: ");
     scanf("%s", roman_numeral);
+
     int caracter = strlen(roman_numeral) - 1;
 
     for (int i = 0; i < strlen(roman_numeral); i++) {
@@ -231,15 +236,15 @@ int multiplicacionMatrices() {
 
 //Borrar espacios
 void borrarEspacios() {
-
     char cadena[60];
     char stringSalida[60];
     printf("Ingrese un texto corto: \n");
-    scanf("%[^\n]", cadena);
+
+    scanf("\n%[^\n]", cadena);
 
     int auxIndex = 0;
     for (int i = 0; i < strlen(cadena); ++i) {
-        if(cadena[i] != *" "){
+        if (cadena[i] != *" ") {
             stringSalida[auxIndex] = cadena[i];
             auxIndex++;
         }
@@ -251,4 +256,169 @@ void borrarEspacios() {
 
 void fecha() {
 
+    int day, month, year;
+    printf("Ingresa la fecha que desees (dd/mm/aaaa): \n");
+    scanf("%d/ %d/ %d", &day, &month, &year);
+
+    if (year < 2023) {
+        switch (month) {
+            case 1:
+                if (day <= 31) {
+                    printf("%d de Enero de %d ", day, year);
+                } else {
+                    printf("dia invalido");
+                }
+                break;
+            case 2:
+                if (day <= 28) {
+                    printf("%d de Febrero de %d ", day, year);
+                } else {
+                    printf("dia invalido");
+                }
+                break;
+            case 3:
+                if (day <= 31) {
+                    printf("%d de Marzo de %d ", day, year);
+                } else {
+                    printf("dia invalido");
+                }
+                break;
+            case 4:
+                if (day <= 30) {
+                    printf("%d de Abril de %d ", day, year);
+                } else {
+                    printf("dia invalido");
+                }
+                break;
+            case 5:
+                if (day <= 31) {
+                    printf("%d de Mayo de %d ", day, year);
+                } else {
+                    printf("dia invalido");
+                }
+                break;
+            case 6:
+                if (day <= 30) {
+                    printf("%d de Junio de %d ", day, year);
+                } else {
+                    printf("dia invalido");
+                }
+                break;
+            case 7:
+                if (day <= 31) {
+                    printf("%d de Julio de %d ", day, year);
+                } else {
+                    printf("dia invalido");
+                }
+                break;
+            case 8:
+                if (day <= 31) {
+                    printf("%d de Agosto de %d ", day, year);
+                } else {
+                    printf("dia invalido");
+                }
+                break;
+            case 9:
+                if (day <= 30) {
+                    printf("%d de Septiembre de %d ", day, year);
+                } else {
+                    printf("dia invalido");
+                }
+                break;
+            case 10:
+                if (day <= 31) {
+                    printf("%d de Octubre de %d ", day, year);
+                } else {
+                    printf("dia invalido");
+                }
+                break;
+
+            case 11:
+                if (day <= 30) {
+                    printf("%d de Noviembre de %d ", day, year);
+                } else {
+                    printf("dia invalido");
+                }
+                break;
+
+            case 12:
+                if (day <= 31) {
+                    printf("%d de Diciembre de %d ", day, year);
+                } else {
+                    printf("dia invalido");
+                }
+                break;
+            default:
+                printf("Mes invalido");
+        }
+    } else {
+        printf("tiempo invalido");
+    }
+}
+
+#define nums 100
+
+void matrizMagica(int n) {
+    int a[nums][nums];
+    int i,j;
+    i = 1;
+    j = (1+n)/2;
+    a[i][j] = 1;
+    int sumarFilas;
+
+    if(n % 2 == 0) {
+        printf("No es posible hacerlo con un numero par");
+        return;
+    }
+
+    for(int value = 2; value <= n*n; value++){
+        sumarFilas = 0;
+        i -= 1;
+        j += 1;
+        if(i < 1 && j > n){
+            i += 2;
+            j -= 1;
+        }else{
+            if(i < 1){
+                i = n;
+            }
+            if(j > n){
+                j = 1;
+            }
+        }
+        if(a[i][j] == 0){
+            a[i][j] = value;
+        }else{
+            i += 2;
+            j -= 1;
+            a[i][j] = value;
+        }
+    }
+
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= n; j++){
+            printf("%d ", a[i][j]);
+
+        }
+        sumarFilas = sumarFilas + a[i][j];
+
+
+        printf("\n");
+    }
+    printf("la suma de cada una de sus filas y columnas es de %d", sumarFilas);
+
+}
+
+void mostrarMatrizMagica() {
+    printf("Ingrese la dimension de la matriz magica impar: \n");
+    int a[nums][nums];
+    int n;
+    scanf("%d", &n);
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= n; j++){
+            a[i][j] = 0;
+        }
+    }
+
+    matrizMagica(n);
 }

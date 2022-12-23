@@ -1,11 +1,17 @@
 # ninja log v5
-2	94	6935218813215116	CMakeFiles/NumerosRomanos.dir/main.c.obj	3484040cd28d7d98
-95	203	6935218814272273	NumerosRomanos.exe	cf5d8b530b73aa10
-2	154	6935219516546139	CMakeFiles/NumerosRomanos.dir/main.c.obj	3484040cd28d7d98
-155	289	6935219517902498	NumerosRomanos.exe	cf5d8b530b73aa10
-2	105	6935219606561539	CMakeFiles/NumerosRomanos.dir/main.c.obj	3484040cd28d7d98
-106	228	6935219607748371	NumerosRomanos.exe	cf5d8b530b73aa10
-2	72	6935219808747713	CMakeFiles/NumerosRomanos.dir/main.c.obj	3484040cd28d7d98
-72	151	6935219809505679	NumerosRomanos.exe	cf5d8b530b73aa10
-2	83	6935221173977620	CMakeFiles/NumerosRomanos.dir/main.c.obj	3484040cd28d7d98
-84	159	6935221174705669	NumerosRomanos.exe	cf5d8b530b73aa10
+2	79	6935315654709277	CMakeFiles/NumerosRomanos.dir/main.c.obj	3484040cd28d7d98
+79	158	6935315655470811	NumerosRomanos.exe	cf5d8b530b73aa10
+2	75	6935316182036459	CMakeFiles/NumerosRomanos.dir/main.c.obj	3484040cd28d7d98
+75	151	6935316182764774	NumerosRomanos.exe	cf5d8b530b73aa10
+2	81	6935316558896290	CMakeFiles/NumerosRomanos.dir/main.c.obj	3484040cd28d7d98
+82	163	6935316559694140	NumerosRomanos.exe	cf5d8b530b73aa10
+1	72	6935316817373093	CMakeFiles/NumerosRomanos.dir/main.c.obj	3484040cd28d7d98
+73	147	6935316818081473	NumerosRomanos.exe	cf5d8b530b73aa10
+1	75	6935317021688857	CMakeFiles/NumerosRomanos.dir/main.c.obj	3484040cd28d7d98
+76	153	6935317022428835	NumerosRomanos.exe	cf5d8b530b73aa10
+2	88	6935317458355936	CMakeFiles/NumerosRomanos.dir/main.c.obj	3484040cd28d7d98
+89	170	6935317459143826	NumerosRomanos.exe	cf5d8b530b73aa10
+2	75	6935317625862588	CMakeFiles/NumerosRomanos.dir/main.c.obj	3484040cd28d7d98
+76	149	6935317626570982	NumerosRomanos.exe	cf5d8b530b73aa10
+1	74	6935317750665855	CMakeFiles/NumerosRomanos.dir/main.c.obj	3484040cd28d7d98
+75	154	6935317751414130	NumerosRomanos.exe	cf5d8b530b73aa10
