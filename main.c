@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#include <math.h>
+#include<stdbool.h>
 #include <string.h>
 #include <stdlib.h>
 
@@ -16,6 +17,13 @@ void borrarEspacios();
 void fecha();
 
 void mostrarMatrizMagica();
+
+// Parte Juan Diego
+void calcularFactoresPrimos();
+
+void calcularNumerosEgolatras();
+
+void calcularProductoPunto();
 
 int main() {
 
@@ -42,11 +50,13 @@ int main() {
                 numeroRomano();
                 break;
             case 2:
+                calcularFactoresPrimos();
                 break;
             case 3:
                 borrarEspacios();
                 break;
             case 4:
+                calcularNumerosEgolatras();
                 break;
             case 5:
                 numeroMagico();
@@ -55,6 +65,7 @@ int main() {
                 fecha();
                 break;
             case 7:
+                calcularProductoPunto();
                 break;
             case 8:
                 multiplicacionMatrices();
@@ -112,6 +123,119 @@ int numeroRomano() {
     }
 
     printf("El numero romano es equivalente a %d en base 10.\n", decimal);
+}
+
+//Factores primos
+void calcularFactoresPrimos() {
+    int num;
+    printf("Digite un numero: ");
+    scanf("%i", &num);
+    //printf("%s\n", calcularFactoresPrimos(num));
+    if(num == 1){
+        printf("%i\n",num);
+    }
+    else{
+        int factores[num/2]; // Almacenamos los factores primos en un vector
+        int exponentes[num/2];
+        int primos[num/2];
+        int factor = 2; // Se toma como primer primo el 2
+        // llenar vector de factores
+        int numFact = 0;
+        int i = 0;
+        while(num != 1){
+            if((num%factor) == 0){ // El numero es divisible entre el factor primo
+                int numExp = 0; // contador
+                while((num%factor) == 0){
+                    num = num / factor;
+                    factores[numFact] = factor;
+                    numFact++;
+                    numExp++;
+                }
+                primos[i] = factor;
+                exponentes[i] = numExp;
+                i++;
+            }else {
+                factor++; //Incrementa el factor en 1
+            }
+        }
+        int contador = 1;
+        for(int j = 0; j < i; j++){
+            if(contador < i){
+                if(exponentes[j] == 1){
+                    printf("%i*",primos[j],exponentes[j]);
+                }else{
+                    printf("%i^%i*",primos[j],exponentes[j]);
+                }
+            }else{
+                if(exponentes[j] == 1){
+                    printf("%i",primos[j],exponentes[j]);
+                }else{
+                    printf("%i^%i",primos[j],exponentes[j]);
+                }
+            }
+            contador++;
+        }
+        printf("\n");
+    }
+}
+
+//Borrar espacios
+void borrarEspacios() {
+    char cadena[60];
+    char stringSalida[60];
+    printf("Ingrese un texto corto: \n");
+
+    scanf("\n%[^\n]", cadena);
+
+    int auxIndex = 0;
+    for (int i = 0; i < strlen(cadena); ++i) {
+        if (cadena[i] != *" ") {
+            stringSalida[auxIndex] = cadena[i];
+            auxIndex++;
+        }
+    }
+
+    printf("Texto sin espacios: \n");
+    printf("%s", stringSalida);
+}
+
+//Numeros egolatras
+void calcularNumerosEgolatras(){
+    int num;
+    printf("Digite un numero: ");
+    scanf("%i", &num);
+    // num2 y num3 almacenan el valor de num para realizar las respectivas operaciones
+    int num2 = num; //La variable num2 guarda el valor del numero ingresado
+    int num3 = num;
+    // Determinamos el numero de digitos del num ingresado
+    int cont = 1; // contador
+    while (num3 >= 10){
+        num3 = num3/10;
+        cont++;
+    }
+    int tamanio = cont; // A la variable tamaño le asignamos el numero de digitos del num ingresado
+    int secuencia[tamanio];// se crea un vector de enteros con el tamaño
+    // rellenamos el arreglo de numeros con los digitos del num ingresado, de forma inversa
+    for(int i = 0; num!=0;i++ ){
+        secuencia[i] = num % 10;
+        num /= 10;
+    }
+    int a, b, c, aux;
+    int suma = 0;
+    aux = tamanio-1; //
+    for(int i = 0; i < tamanio; i++){
+        a = secuencia[aux]; // base
+        b = tamanio; //exponente
+        c = pow(a, b);// Calculamos la potencia
+        suma = suma + c;
+        aux--;
+    }
+    // Mostramos verdadero si el numero es egolatra o falso si no lo es
+    if(num2 == suma){ // El resultado de la suma de las potencias es igual al numero ingresado
+        printf("VERDADERO\n");
+    }else{
+        printf("FALSO\n");
+    }
 }
 
 //Numeros magicos
@@ -178,86 +302,8 @@ void numeroMagico() {
     }
 }
 
-//Multiplicación de matrices
-int multiplicacionMatrices() {
-    int i, j, k;
-    int filas1, columnas1, filas2, columnas2;
-    int matriz1[100][100], matriz2[100][100], resultado[100][100];
-
-
-    printf("Ingrese las filas de la primera matriz: ");
-    scanf("%d", &filas1);
-    printf("Ingrese las columnas de la primera matriz: ");
-    scanf("%d", &columnas1);
-    printf("Ingrese las filas de la segunda matriz: ");
-    scanf("%d", &filas2);
-    printf("Ingrese las columnas de la segunda matriz: ");
-    scanf("%d", &columnas2);
-
-    if (columnas1 != filas2) {
-        printf("**********************************************\n");
-        printf("Las matrices no se pueden multiplicar.\n");
-        printf("**********************************************\n");
-        return 1;
-    }
-
-    for (i = 0; i < filas1; i++) {
-        for (j = 0; j < columnas1; j++) {
-            matriz1[i][j] = rand() % 11 + 1;
-        }
-    }
-
-    for (i = 0; i < filas2; i++) {
-        for (j = 0; j < columnas2; j++) {
-            matriz2[i][j] = rand() % 11 + 1;
-        }
-    }
-
-    for (i = 0; i < filas1; i++) {
-        for (j = 0; j < columnas2; j++) {
-            resultado[i][j] = 0;
-            for (k = 0; k < columnas1; k++) {
-                resultado[i][j] += matriz1[i][k] * matriz2[k][j];
-            }
-        }
-    }
-    printf("**********************************************\n");
-    printf("El resultado de la multiplicacion de las dos matrices es: \n");
-    printf("**********************************************\n");
-    for (i = 0; i < filas1; i++) {
-        for (j = 0; j < columnas2; j++)
-            printf("%d\t", resultado[i][j]);
-
-        printf("\n");
-
-    }
-    printf("**********************************************\n");
-
-    return 0;
-}
-
-//Borrar espacios
-void borrarEspacios() {
-    char cadena[60];
-    char stringSalida[60];
-    printf("Ingrese un texto corto: \n");
-
-    scanf("\n%[^\n]", cadena);
-
-    int auxIndex = 0;
-    for (int i = 0; i < strlen(cadena); ++i) {
-        if (cadena[i] != *" ") {
-            stringSalida[auxIndex] = cadena[i];
-            auxIndex++;
-        }
-    }
-
-    printf("Texto sin espacios: \n");
-    printf("%s", stringSalida);
-}
-
+//Fechas
 void fecha() {
-
     int day, month, year;
     printf("Ingresa la fecha que desees (dd/mm/aaaa): \n");
     scanf("%d/ %d/ %d", &day, &month, &year);
@@ -356,6 +402,92 @@ void fecha() {
     } else {
         printf("tiempo invalido");
     }
+}
+
+//Producto punto
+void calcularProductoPunto(){
+    int v1[3], v2[3];
+    // Llenar vector 1
+    printf("Ingrese el valor de cada componente del vector 1\n ");
+    for(int i = 0; i < 3; i++){
+        i++;
+        printf("Componente %i = ",i);
+        i--;
+        scanf("%i",&v1[i]);
+    }
+    // Llenar vector 2
+    printf("Ingrese el valor de cada componente del vector 2\n ");
+    for(int i = 0; i < 3; i++){
+        i++;
+        printf("Componente %i = ",i);
+        i--;
+        scanf("%i",&v2[i]);
+    }
+    // Calcular producto punto
+    int escalar = 0;
+    for(int i = 0; i < 3; i++){
+        escalar = escalar + (v1[i]*v2[i]);
+    }
+    // Obetener producto punto entre v1 y v2
+    printf("El producto vectorial entre v1 y v2 es: %i \n",escalar);
+}
+
+//Multiplicación de matrices
+int multiplicacionMatrices() {
+    int i, j, k;
+    int filas1, columnas1, filas2, columnas2;
+    int matriz1[100][100], matriz2[100][100], resultado[100][100];
+
+
+    printf("Ingrese las filas de la primera matriz: ");
+    scanf("%d", &filas1);
+    printf("Ingrese las columnas de la primera matriz: ");
+    scanf("%d", &columnas1);
+    printf("Ingrese las filas de la segunda matriz: ");
+    scanf("%d", &filas2);
+    printf("Ingrese las columnas de la segunda matriz: ");
+    scanf("%d", &columnas2);
+
+    if (columnas1 != filas2) {
+        printf("**********************************************\n");
+        printf("Las matrices no se pueden multiplicar.\n");
+        printf("**********************************************\n");
+        return 1;
+    }
+
+    for (i = 0; i < filas1; i++) {
+        for (j = 0; j < columnas1; j++) {
+            matriz1[i][j] = rand() % 11 + 1;
+        }
+    }
+
+    for (i = 0; i < filas2; i++) {
+        for (j = 0; j < columnas2; j++) {
+            matriz2[i][j] = rand() % 11 + 1;
+        }
+    }
+
+    for (i = 0; i < filas1; i++) {
+        for (j = 0; j < columnas2; j++) {
+            resultado[i][j] = 0;
+            for (k = 0; k < columnas1; k++) {
+                resultado[i][j] += matriz1[i][k] * matriz2[k][j];
+            }
+        }
+    }
+    printf("**********************************************\n");
+    printf("El resultado de la multiplicacion de las dos matrices es: \n");
+    printf("**********************************************\n");
+    for (i = 0; i < filas1; i++) {
+        for (j = 0; j < columnas2; j++)
+            printf("%d\t", resultado[i][j]);
+
+        printf("\n");
+
+    }
+    printf("**********************************************\n");
+
+    return 0;
 }
 
 #define nums 100
